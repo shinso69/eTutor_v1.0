@@ -1,0 +1,449 @@
+// Imports
+@import "config";
+
+// Global -Stettings -Styles
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: "Lato", sans-serif;
+  overflow-y: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  // Global Links
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  // Global Lists
+  ul {
+    list-style: none;
+  }
+
+  //   Main_index -Style -Positioning
+  #index {
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+        62px,
+        1fr
+      );
+    grid-auto-rows: minmax(min-content, max-content);
+    height: 100vh;
+
+    header {
+      grid-column: 1 / span 8;
+      background: url(../img/showcase_pannel_sm.svg) no-repeat center
+        center/cover;
+      height: 90vh;
+      display: grid;
+      grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+          62px,
+          1fr
+        );
+      grid-auto-rows: minmax(min-content, max-content);
+
+      nav {
+        // position: fixed;
+        // width: 100%;
+        grid-column: 2 / span 6;
+        display: flex;
+        height: 10vh;
+        align-items: center;
+        // background-color: $secondary-light;
+
+        img {
+          width: 130px;
+        }
+
+        ul {
+          margin-left: auto;
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+
+          ::before,
+          ::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            @include easeOut;
+          }
+
+          ::before {
+            bottom: -20px;
+            background-color: $primary-blue;
+          }
+
+          ::after {
+            bottom: -25px;
+            background-color: $primary-orange;
+          }
+
+          li {
+            margin-left: 50px;
+
+            a {
+              color: $primary-blue;
+              font-size: 20px;
+              position: relative;
+              @include easeOut;
+
+              &:hover {
+                color: $primary-orange;
+              }
+            }
+          }
+        }
+      }
+
+      //   Hero_section -Style -Positioning
+      #hero_section {
+        grid-column: 3 / span 4;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(min-content, max-content);
+        height: 130px;
+        margin-top: 150px;
+
+        h1 {
+          grid-column: 1 / span 2;
+          color: $primary-blue;
+          font-size: 36px;
+          justify-self: center;
+        }
+
+        h2 {
+          grid-column: 1 / span 4;
+          color: $primary-blue;
+          font-size: 28px;
+          font-weight: lighter;
+          margin-top: 20px;
+        }
+
+        #cta_button {
+          grid-column: 3 / span 2;
+          border: none;
+          border-radius: 10px;
+          background-color: $primary-orange;
+          color: $secondary-light;
+          width: 85%;
+          height: 55px;
+          align-self: center;
+          justify-self: center;
+          font-size: 24px;
+          font-weight: 500;
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          @include easeOut;
+          cursor: pointer;
+
+          &:hover {
+            background: transparent;
+            border: 2px solid $primary-orange;
+            color: $primary-orange;
+          }
+
+          &:active,
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  //   Main_advertisment -Style -Positioning
+  #advertisment {
+    display: grid;
+    grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+        62px,
+        1fr
+      );
+    grid-auto-rows: minmax(min-content, max-content);
+    height: 55vh;
+
+    #advertisment_section {
+      grid-column: 3 / span 4;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(min-content, max-content);
+      margin-top: 60px;
+
+      #get_to_know_us_cta {
+        grid-column: 1 / span 2;
+
+        p {
+          color: $primary-orange;
+          font-size: 24px;
+        }
+
+        #p_bottom {
+          margin-top: 20px;
+          font-weight: bolder;
+        }
+
+        #conocenos_btn {
+          width: 85%;
+          align-self: center;
+          height: 55px;
+          color: $primary-blue;
+          font-size: 24px;
+          font-weight: 400;
+          border: 2px solid $primary-blue;
+          border-radius: 10px;
+          background: transparent;
+          margin-top: 25px;
+          @include easeOut;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $primary-blue;
+            color: $secondary-light;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      #questions {
+        grid-column: 3 / span 2;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        grid-auto-rows: minmax(min-content, max-content);
+
+        p {
+          margin-bottom: 10px;
+          color: $primary-blue;
+          font-size: 24px;
+        }
+
+        img {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  //   Main_services -Style -Positioning
+  #services {
+    display: grid;
+    grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+        62px,
+        1fr
+      );
+    grid-auto-rows: minmax(min-content, max-content);
+
+    .services_container {
+      grid-column: 1 / span 8;
+      background: url(../img/section_brake_sm.svg) no-repeat center center/cover;
+      height: 90vh;
+      display: grid;
+      grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+          62px,
+          1fr
+        );
+      grid-auto-rows: minmax(min-content, max-content);
+
+      #services_top {
+        grid-column: 3 / span 4;
+        margin-top: 200px;
+
+        h2 {
+          font-size: 28px;
+          color: $primary-blue;
+          margin-bottom: 40px;
+        }
+      }
+
+      #services_bottom {
+        grid-column: 3 / span 4;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+
+        h3 {
+          font-size: 24px;
+          color: $primary-orange;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 20px;
+          color: $primary-blue;
+          line-height: 1.6;
+        }
+
+        .column {
+          box-sizing: border-box;
+          text-align: justify;
+          padding: 0 20px;
+        }
+
+        #examen_column {
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  //   Main_about -Style -Positioning
+  #about {
+    display: grid;
+    grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+        62px,
+        1fr
+      );
+    grid-auto-rows: minmax(min-content, max-content);
+
+    .section_devider {
+      grid-column: 1 / span 3;
+      position: relative;
+      height: 10vh;
+      margin-top: 40px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        left: 0;
+        z-index: 1;
+      }
+
+      &::before {
+        background-color: $primary-blue;
+        top: 25px;
+        width: 92%;
+      }
+
+      &::after {
+        background-color: $primary-orange;
+        top: 30px;
+        width: 80%;
+      }
+    }
+
+    #quienes_somos {
+      grid-column: 1 / span 8;
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: minmax(62px, 1fr) repeat(6, minmax(50px, 190px)) minmax(
+          62px,
+          1fr
+        );
+      grid-auto-rows: minmax(min-content, max-content);
+      background: url(../img/story_pannel.svg) no-repeat center center/cover;
+      height: 90vh;
+
+      #general_info {
+        grid-column: 3 / span 4;
+
+        h2 {
+          color: $primary-blue;
+          font-size: 28px;
+        }
+
+        p {
+          color: $primary-orange;
+          font-size: 18px;
+          margin-top: 20px;
+          line-height: 1.3;
+        }
+      }
+
+      .tutor {
+        display: none;
+        grid-column: 3 / span 4;
+        margin-top: 40px;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      #tutor_1,
+      #tutor_2 {
+        border-radius: 10px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: grid;
+        grid-template-columns: minmax(min-content, max-content), 1fr, 15px;
+        grid-auto-rows: minmax(min-content, max-content);
+
+        img {
+          grid-column: 1 / span 1;
+          border-radius: 50%;
+          width: 150px;
+        }
+
+        .tutor_info {
+          grid-column: 2 / span 1;
+          border-left: rgba(0, 0, 0, 0.1) 1px solid;
+          border-right: rgba(0, 0, 0, 0.1) 1px solid;
+          margin-left: 20px;
+          padding-left: 20px;
+          height: 100%;
+
+          h3 {
+            color: $primary-orange;
+            font-size: 20px;
+            justify-self: left;
+            margin-bottom: 20px;
+          }
+
+          p {
+            color: $primary-blue;
+            font-size: 18px;
+            justify-self: left;
+            line-height: 1.6;
+          }
+        }
+
+        .next_btn {
+          grid-column: 3 / span 1;
+          padding: 0 2px;
+          border-radius: 0 5px 5px 0;
+          height: 100%;
+          width: 100%;
+          background-color: lighten($primary-blue, 20);
+          cursor: pointer;
+          color: $secondary-light;
+          @include easeOut;
+          display: grid;
+          grid-template-rows: repeat(3, 1fr);
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: lighten($primary-orange, 20);
+          }
+
+          i {
+            grid-row: 2 / span 1;
+            margin-top: 50%;
+          }
+        }
+      }
+    }
+  }
+}
